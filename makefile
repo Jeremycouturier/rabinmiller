@@ -13,7 +13,7 @@ rabinmiller.o: rabinmiller.c rabinmiller.h arithmetique2.o liste.o
 	$(FF) $(OPTF) -c rabinmiller.c
 
 premier: main.c rabinmiller.o arithmetique2.o liste.o
-	$(FF) $(OPTF) main.c rabinmiller.o arithmetique2.o liste.o -o premier
+	$(FF) main.c $(OPTF) rabinmiller.o arithmetique2.o liste.o -lm -o premier
 
 clean: 
 	\rm -f *.o

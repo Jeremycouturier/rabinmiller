@@ -1,8 +1,8 @@
 #ifndef _LISTE_H_
 #define _LISTE_H_
 
-//#define typ unsigned int
-#define typ unsigned long
+//#define typ unsigned int -> base max = 43341
+#define typ unsigned long // -> base max = 3037000500
 
 //base of numbering into which calculus are done
 typ base;

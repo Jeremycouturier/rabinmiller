@@ -66,4 +66,15 @@ is used in main to travel along the odd integer until a prime is found
 l is deallocated*/
 struct liste * impair_suivant(struct liste * l);
 
+/* returns n where n is the smallest number of digits a number written
+in base base should have for its number of bits to be greater than bits */
+int digit(typ base, int bits);
+
+/* returns what should be the most significant digit of an integer written
+in base base such as :
+(i) base >> 1
+(ii) all its digit except the most significant one are equal to base/2
+(iii) Its number of bits is bits */
+typ most_significant_digit(typ base, int bits);
+
 #endif

@@ -4,6 +4,7 @@
 #include "liste.h"
 #include "arithmetique2.h"
 #include <errno.h>
+#include <math.h>
 
 typ max(typ n1, typ n2){
 	if(n1>=n2){
@@ -585,6 +586,48 @@ struct liste * impair_suivant(struct liste * l){
 	desallouer(l);
 	return ll;
 }
+
+int digit(typ base, int bits){
+	double b=(double) (base);
+	double log2base=log2(b);
+	int n=1;
+	int bit=(int) (floor(((double) (n-1))*log2base))+1;
+	while(bit<bits){
+		n=n+1; 
+		bit=(int) (floor(((double) (n-1))*log2base))+1;
+		//if(bit==bits){return n;}
+	}
+	return n-1;
+}
+
+typ most_significant_digit(typ base, int bits){
+	double b=(double) (base);
+	double bb=(double) bits;
+	int n=digit(base,bits);
+	double terme=((double) (n-1))*log2(b);
+	double a_max=base;
+	double a_min=0.0;
+	double gap=a_max-a_min;
+	double middle=a_min+(a_max-a_min)/2.0;
+	double bit=1+floor(terme+log2(middle+0.5));
+	while(gap>0.0001){
+			if(bit>bb){
+				a_max=middle;
+				middle=a_min+(a_max-a_min)/2.0;
+				gap=a_max-a_min;
+				bit=1+(int) (floor(terme+log2(middle+0.5)));
+			}
+			else if(bit<=bb){
+				a_min=middle;
+				middle=a_min+(a_max-a_min)/2.0;
+				gap=a_max-a_min;
+				bit=1+(int) (floor(terme+log2(middle+0.5)));
+			}
+			//printf("%lf\n", a_min);
+	}
+	return (typ) (floor(a_max));
+}
+	
 
 
 

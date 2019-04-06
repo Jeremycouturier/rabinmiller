@@ -7,7 +7,7 @@
 #include <errno.h>
 
 //typ base = 43341;
-typ base =3037000500;        // 3037000500;
+typ base =3037000500;
 
 int main(){
 	/*int * bit = (int *)malloc(sizeof(int));
@@ -39,71 +39,92 @@ int main(){
 	affiche_liste(p);
 	free(bit);*/
 
-	/*typ vect1[3]={7,4,8};
-	typ vect2[2]={1,2};
+	/*int taille=1000;
+	struct liste * l = aleat_impair(0,base,taille);
+	affiche_liste_rapide(l);
+	typ le_max=0;
+	int i;
+	for (i=0; i<taille; i++){
+		if(l->tete>le_max){
+			le_max=l->tete;
+		}
+		l=enleve(l);
+	}
+	printf("%lu\n%d\n", le_max, RAND_MAX);*/
 
-	struct liste * l1=vect_to_liste(vect1,3);
-	struct liste * l2=vect_to_liste(vect2,2);
-	struct liste ** l=euclide(l1,l2);
-	affiche_liste_rapide(*l);
-	affiche_liste_rapide(*(l+1));*/
+	/*int bits=14;
+	int n=digit(base,bits);
+	typ a=most_significant_digit(base,bits);
+	printf("%d\n%lu\n", n, a);*/
 
-	/*typ vect1[2]={4,8};
-	typ vect2[6]={1,6,8,5,9,4};
-	typ vect3[4]={1,0,9,7};
-	
-	struct liste * b=vect_to_liste(vect1,2);
-	struct liste * e=vect_to_liste(vect2,6);
-	struct liste * m=vect_to_liste(vect3,4);
-
-	struct liste * resultat=exp_mod(b,e,m);
-	resultat=miroir(resultat);
-	affiche_liste_rapide(resultat);*/
-
-	/*typ new=62;
-	typ vect[16]={28033,12882,1505,15952,2577,12448,3035,26712,14696,7331,16264,17222,15936,12851,10247,6739};
-	struct liste * l=vect_to_liste(vect,16);
-	l=changebase(l,30000,new);
-	base=new;
+	int * bit = (int *)malloc(sizeof(int));
+	int i;
+	int b = 0;
+	printf("How many bits do you want your prime to have ?\n");
+	b = scanf("%d", bit);
+	int taille=digit(base,*bit);
+	typ msd=most_significant_digit(base,*bit);
+	struct liste * l=aleat_liste(0,base,taille);
+	struct liste * lmod2=NULL;
+	int compteur = 1;
 	l=miroir(l);
-	printf("%d\n", est_premier(l,18));*/
-
-	/*unsigned long a=9223372036854775807;
-	unsigned int b=2147483647;
-	printf("%u\n", 2147483647*10);*/
-
-
-	/*struct liste * a=aleat_impair(0,base,70);
-	int compteur=1;
+	if(taille>=3){
+		l=enleve(enleve(l));
+		l=ajout(base/2,l);
+		l=ajout(msd,l);
+		l=miroir(l);
+	}
+	else{
+		l=enleve(l);
+		l=ajout(msd,l);
+		l=miroir(l);
+	}
+	lmod2=reste(l,ajout(2,NULL));
+	if(!lmod2->tete){
+		l=soustraction_free(l,ajout(1,NULL));
+	}
 	printf("try n° %d\n", compteur);
-	while(!est_premier(a,18)){
-		a=impair_suivant(a);
-		compteur++;
+	while(!est_premier(l,18)){
+		l=impair_suivant(l);
+		compteur=compteur+1;
 		printf("try n° %d\n", compteur);
 	}
-	a=miroir(a);
-	affiche_liste_rapide(a);
-	a=miroir(a);
-	a=changebase(a,base,10);
-	printf("\n");
-	printf("%d\n", longueur(a));
-	printf("\n");
-	affiche_liste(a);*/
-
-	typ p1[100]={1266163709,533555925,331581199,1845652818,240814278,1381286516,856502347,25610772,1860015532,85637422,8287484,1582747065,67416648,2010567097,1186477309,402694521,1933292283,1180070646,294800252,502626298,260540641,1051871855,297123295,639857227,467893819,822193814,1407711624,1595763008,74418504,1735494135,1649741638,1340582212,121566413,1981322838,1038751382,362380691,1215125706,1895253730,387991464,927657591,1980891152,396278948,362921008,2048307800,259362397,1549398317,303518673,45171032,581985315,598318925,547797330,842525957,1650190781,844920626,1482383184,2118084600,1667114440,742611160,1566363960,1741532944,330621648,1068621951,934631509,452188061,902461141,1973382891,814568752,2117586847,1721152973,1202560216,897760790,1554560477,1598839165,1260681798,1455384629,1858201562,662596468,1758903302,1903372595,1244581783,209738580,303686277,2087107740,1859929361,1148606903,1422007276,1830530313,668237696,17134789,1249410626,262286992,347756437,170548929,1196918501,799944498,1073010070,1022817745,1614513250,1043113269,596487113};
-
-	typ p2[100]={993056004,345002987,74979222,975813037,1248903049,441929614,327694998,508266293,1328295352,1565683190,169033253,968425059,1012533451,1303931917,1995845315,1078874072,490145630,1409649187,2015281830,2041605032,781443941,629436202,21701577,1280632582,810602505,668506854,1535380806,934121040,1861777082,396427693,75075094,707349437,741430681,150054316,1683162475,1990333730,591983930,2010857473,351116375,1920279282,1429057015,520149629,741220694,294106819,1824081546,589582361,1372980891,166743528,1999231548,1240779073,60864912,633191841,1870215276,82566489,1913824423,533334133,751073344,1301721581,1467455173,465366778,1698149274,1542530267,1172716215,292096307,1692584584,708395042,134946389,137084866,571768867,486062765,2057364149,2000825883,1006212394,651101195,147449054,682810292,1240683556,1520429945,849553820,1092431456,613725370,910418732,1725623297,336456998,992985221,1491964072,869791131,1744058565,646202005,189762657,61941695,196867631,1732292924,1234657911,488963939,1277393860,1943052953,623910328,1414478727,367338247};
-
-	struct liste * l1=vect_to_liste(p1,100);
-	struct liste * l2=vect_to_liste(p2,100);
-	struct liste * l=fois(l1,l2);
-	l=miroir(l);
-	affiche_liste_rapide(l);
-	l=miroir(l);
-	l=changebase(l,base,10);
 	printf("\n\n");
+	printf("a prime was found !\n\nbase 10 :\n\n");
+	l=changebase(l,base,10);
 	affiche_liste(l);
+	l=miroir(l);
+	base=10;
+	l=changebase(l,10,2);
+	printf("\n\nbase 2 :\n\n");
+	affiche_liste(l);
+	printf("\n\nnumber of bits : %d\n", longueur(l));
+	
+	
+	
+	
+
+
+
+
+
+
+
+
 
 	return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 	

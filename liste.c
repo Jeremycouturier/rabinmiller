@@ -121,14 +121,20 @@ struct liste * vect_to_liste(typ * vect,int taille){
 
 struct liste * aleat_liste(typ a, typ b, int size){ 
 	typ c;
+	typ a1;
+	typ a2;
 	int i = 0;
 	struct liste * l = NULL;
 
 	srand((int) (clock() + time(NULL)));
-	c=rand()%(b-a-1)+a+1;
+	a1=2*((typ) (rand()));
+	a2=rand()%2;
+	c=(a1+a2)%(b-a-1)+a+1;
 	l=ajout(c,l);
 	for(i=0; i<size-1; i++){
-		c=rand()%(b-a)+a;
+		a1=2*((typ) (rand()));
+		a2=rand()%2;
+		c=(a1+a2)%(b-a)+a;
 		l=ajout(c, l);
 	}
 	return l;
