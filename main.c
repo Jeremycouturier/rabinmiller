@@ -15,6 +15,8 @@ int main(){
 	int i;
 	int b = 0;
 	int boolean;
+    clock_t c1;
+    clock_t c2;
 	double densite; // the density of prime
 	double expectancy; // the expectancy of runtime
 	double time_per_composite; // the time needed fo a composite number to be tested
@@ -47,14 +49,20 @@ int main(){
 	expectancy=0.5*(1.0/densite)*time_per_composite;
 	printf("\nExpectancy of runtime : %lf seconds\n", expectancy);
 	printf("\ntry n° %d\n", compteur);
+    c1=clock();
 	boolean = est_premier(l,18);
+    c2=clock();
+    if(!boolean){
+		printf("found to be composite in %f secondes\n\n", ((double) (c2-c1)) / ((double) (CLOCKS_PER_SEC)));
+	}
+
 	while(!boolean){
 		l=impair_suivant(l);
 		compteur=compteur+1;
 		printf("try n° %d\n", compteur);
-		clock_t c1 = clock();
+		c1 = clock();
 		boolean = est_premier(l,18);
-		clock_t c2 = clock();
+		c2 = clock();
 		if(!boolean){
 			printf("found to be composite in %f secondes\n\n", ((double) (c2-c1)) / ((double) (CLOCKS_PER_SEC)));
 		}
