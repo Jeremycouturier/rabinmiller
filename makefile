@@ -16,4 +16,4 @@ premier: main.c rabinmiller.o arithmetique2.o liste.o
 	$(FF) main.c $(OPTF) rabinmiller.o arithmetique2.o liste.o -lm -o premier
 
 clean: 
-	\rm -f *.o
+	\rm -f *.o *.log

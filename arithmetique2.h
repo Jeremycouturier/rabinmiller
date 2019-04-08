@@ -77,4 +77,11 @@ in base base such as :
 (iii) Its number of bits is bits */
 typ most_significant_digit(typ base, int bits);
 
+/* returns a rough estimate of the density of prime around the integer
+represented by the struct liste l.
+msd is the most significant digit of l
+The same conditions as "most_significant_digit" have to be valid
+This function is used to calculate the "expectancy of runtime" */
+double density_of_prime(struct liste * l, typ msd);
+
 #endif

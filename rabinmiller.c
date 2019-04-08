@@ -6,24 +6,24 @@
 #include <errno.h>
 
 int est_premier(struct liste * p, int nbtemoin){
-	typ p1[1] = {2};          //2    Les 18 témoins de Miller utilisés
+	typ p1[1] = {2};          //2    The 18 used miller's witnesses
 	typ p2[1] = {3};          //3
 	typ p3[1] = {5};          //5
 	typ p4[1] = {7};          //7
-	typ p5[1] = {11};        //11
-	typ p6[1] = {13};        //13
-	typ p7[1] = {17};        //17
-	typ p8[1] = {19};    //19
-	typ p9[1] = {23};    //23
-	typ p10[1] = {29};   //29
-	typ p11[1] = {31};   //31
-	typ p12[1] = {37}; //37
-	typ p13[1] = {41}; //41
-	typ p14[1] = {43}; //43
-	typ p15[1] = {47}; //47
-	typ p16[1] = {53}; //53
-	typ p17[1] = {59}; //59
-	typ p18[1] = {61}; //61
+	typ p5[1] = {11};         //11
+	typ p6[1] = {13};         //13
+	typ p7[1] = {17};         //17
+	typ p8[1] = {19};         //19
+	typ p9[1] = {23};         //23
+	typ p10[1] = {29};        //29
+	typ p11[1] = {31};        //31
+	typ p12[1] = {37};        //37
+	typ p13[1] = {41};        //41
+	typ p14[1] = {43};        //43
+	typ p15[1] = {47};        //47
+	typ p16[1] = {53};        //53
+	typ p17[1] = {59};        //59
+	typ p18[1] = {61};        //61
 
 	struct liste * deux = vect_to_liste(p1, 1);
 	struct liste * trois = vect_to_liste(p2, 1);

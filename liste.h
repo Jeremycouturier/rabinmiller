@@ -8,8 +8,8 @@
 typ base;
 
 struct liste {
-	typ tete;
-	struct liste * queue;
+	typ tete; //the head of the linked list
+	struct liste * queue; //the tail of the linked list
 };
 
 //add an element at the head of l

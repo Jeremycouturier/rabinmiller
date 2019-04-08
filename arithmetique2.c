@@ -595,7 +595,6 @@ int digit(typ base, int bits){
 	while(bit<bits){
 		n=n+1; 
 		bit=(int) (floor(((double) (n-1))*log2base))+1;
-		//if(bit==bits){return n;}
 	}
 	return n-1;
 }
@@ -605,7 +604,7 @@ typ most_significant_digit(typ base, int bits){
 	double bb=(double) bits;
 	int n=digit(base,bits);
 	double terme=((double) (n-1))*log2(b);
-	double a_max=base;
+	double a_max=(double) (base-1);
 	double a_min=0.0;
 	double gap=a_max-a_min;
 	double middle=a_min+(a_max-a_min)/2.0;
@@ -623,27 +622,13 @@ typ most_significant_digit(typ base, int bits){
 				gap=a_max-a_min;
 				bit=1+(int) (floor(terme+log2(middle+0.5)));
 			}
-			//printf("%lf\n", a_min);
 	}
 	return (typ) (floor(a_max));
 }
-	
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+double density_of_prime(struct liste * l, typ msd){
+	double b=(double) base;
+	int n=longueur(l);
+	double lnl=log(((double) msd)+0.5)+((double) (n-1))*log(b);
+	return 1.0/lnl;
+}
