@@ -25,6 +25,7 @@ The subsequent executable is called premier
 
 jrmy@Deimos ~/C/rabinmiller_github $ ./premier
 How many bits do you want your prime to have ?
+
 107
 
 Density of prime in this region : 0.013483
@@ -32,24 +33,23 @@ Density of prime in this region : 0.013483
 Expectancy of runtime : 0.491230 seconds
 
 try n° 1
-found to be composite in 0.013371 secondes
+found to be composite in 0.013371 seconds
 
 try n° 2
-found to be composite in 0.013437 secondes
+found to be composite in 0.013437 seconds
 
 try n° 3
-found to be composite in 0.013025 secondes
+found to be composite in 0.013025 seconds
 
 try n° 4
-found to be composite in 0.013367 secondes
+found to be composite in 0.013367 seconds
 
 try n° 5
-found to be composite in 0.013509 secondes
+found to be composite in 0.013509 seconds
 
 try n° 6
 
-
-a prime was found !
+Found to be prime !
 
 base 10 :
 
