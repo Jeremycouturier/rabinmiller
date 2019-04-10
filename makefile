@@ -1,5 +1,5 @@
 FF = gcc
-OPTF = -g -O2
+OPTF = -O2
 
 all: premier
 
