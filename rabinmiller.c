@@ -105,6 +105,16 @@ int est_premier(struct liste * p, int nbtemoin){
 	return 0;
 }
 
+struct liste * premier(int taille){
+
+	struct liste * l=aleat_impair(0,base,taille);
+	while(!est_premier(l,18)){
+		l=impair_suivant(l);
+	}
+	return l;
+
+}
+
 
 
 

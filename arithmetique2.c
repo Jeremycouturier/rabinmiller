@@ -632,3 +632,39 @@ double density_of_prime(struct liste * l, typ msd){
 	double lnl=log(((double) msd)+0.5)+((double) (n-1))*log(b);
 	return 1.0/lnl;
 }
+
+/*struct liste ** euclide_etendu(struct liste * l1, struct liste * l2){
+
+}
+
+struct liste ** rsa_initialize(int taille){
+
+	struct liste ** ned=(struct liste **)malloc(3*sizeof(struct liste *));
+	struct liste * p=premier(taille);
+	struct liste * q=premier(taille);
+	struct liste * un=ajout(1,NULL);
+	while(est_egal(p,q)){
+		q=premier(taille);
+	}
+	struct liste * n =fois(p,q);
+	struct liste * phin=fois(soustraction(p,un),soustraction(q,un));
+	int taillephin=longueur(phin);
+	struct liste * e=aleat_impair(taillephin);*/
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

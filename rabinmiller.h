@@ -10,4 +10,7 @@ Note that this function works only if (base) > (the greatest witness)
 which happens to be 61 */
 int est_premier(struct liste * p, int nbtemoin);
 
+//returns a prime whose size in base base is taille
+struct liste * premier(int taille);
+
 #endif
