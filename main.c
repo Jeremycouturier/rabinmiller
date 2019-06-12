@@ -46,8 +46,8 @@ int main(){
 	}
 	densite=density_of_prime(l,msd);
 	printf("\nDensity of prime in this region : %lf\n", densite);
-	expectancy=0.5*(1.0/densite)*time_per_composite;
-	printf("\nExpectancy of runtime : %lf seconds\n", expectancy);
+	expectancy=0.5*(1.0/densite);
+	printf("\nExpectancy of number of tries : %lf tries\n", expectancy);
 	printf("\ntry n° %d\n", compteur);
     c1=clock();
 	boolean = est_premier(l,18);
