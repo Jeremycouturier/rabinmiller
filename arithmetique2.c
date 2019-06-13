@@ -635,6 +635,30 @@ double density_of_prime(struct liste * l, typ msd){
 
 /*struct liste ** euclide_etendu(struct liste * l1, struct liste * l2){
 
+	struct liste ** rst=(struct liste **)malloc(3*sizeof(struct liste *));
+	struct liste * quotient=NULL;
+	struct liste * r0=dupliquer(l1);
+	struct liste * r1=dupliquer(l2);
+	struct liste * s0=ajout(1,NULL);
+	struct liste * s1=ajout(0,NULL);
+	struct liste * t0=ajout(0,NULL);
+	struct liste * t1=ajout(1,NULL);
+	struct liste * zero=ajout(0,NULL);
+	struct liste * s1_avant=ajout(0,NULL);
+	struct liste * t1_avant=ajout(1,NULL);
+	struct liste ** qr;
+	struct liste * intermediaire
+	int signes0,signes1,signet0,signet1;
+
+	while(!est_inferieur(r1,zero)){
+		qr=euclide(r0,r1);
+		r0=r1;
+		r1=*(qr+1);
+		s1=soustraction(s0,fois_free(*qr,s1))
+		s0=s1_avant;
+		s1_avant=s1;
+	}
+
 }
 
 struct liste ** rsa_initialize(int taille){
