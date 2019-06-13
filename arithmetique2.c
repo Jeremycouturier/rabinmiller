@@ -649,22 +649,6 @@ struct liste ** rsa_initialize(int taille){
 	struct liste * n =fois(p,q);
 	struct liste * phin=fois(soustraction(p,un),soustraction(q,un));
 	int taillephin=longueur(phin);
-	struct liste * e=aleat_impair(taillephin);*/
+	struct liste * e=aleat_impair(taillephin);
 	
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
+}*/
