@@ -105,14 +105,63 @@ int est_premier(struct liste * p, int nbtemoin){
 	return 0;
 }
 
-struct liste * premier(int taille){
+struct liste * premier(int * bit){
 
-	struct liste * l=aleat_impair(0,base,taille);
-	while(!est_premier(l,18)){
-		l=impair_suivant(l);
+	clock_t c1;
+    clock_t c2;
+	int boolean;
+	int taille=digit(base,*bit);
+	typ msd=most_significant_digit(base,*bit);
+	struct liste * l=aleat_liste(0,base,taille);
+	double densite=density_of_prime(l,msd);
+	double expectancy= 0.17*1/densite;
+	printf("expectancy of number of tries: %.2lf\n", expectancy);
+	l=miroir(l);
+	if(taille>3){
+		l=enleve(enleve(l));
+		l=ajout(base/2,l);
+		l=ajout(msd,l);
+		l=miroir(l);
 	}
-	return l;
+	else{
+		l=enleve(l);
+		l=ajout(msd,l);
+		l=miroir(l);
+	} 
+	typ * candidats=tobetested(100000);
+	typ compteur=0;
+	l->tete=*(candidats+compteur);
+	printf("\ntry n° %lu\n", compteur+1);
+	c1=clock();
+	boolean = est_premier(l,18);
+    c2=clock();
+    if(!boolean){
+		printf("found to be composite in %f secondes\n\n", ((double) (c2-c1)) / ((double) (CLOCKS_PER_SEC)));
+	}
+	while(!boolean){
+		compteur=compteur+1;
+		l->tete=*(candidats+compteur);
+		printf("try n° %lu\n", compteur+1);
+		c1 = clock();
+		boolean = est_premier(l,18);
+		c2 = clock();
+		if(!boolean){
+			printf("found to be composite in %f seconds\n\n", ((double) (c2-c1)) / ((double) (CLOCKS_PER_SEC)));
+		}
+	}
 
+	printf("\n");
+	printf("Found to be prime !\n\nbase 10 :\n\n");
+	l=changebase(l,base,10);
+	affiche_liste(l);
+	l=miroir(l);
+	base=10;
+	l=changebase(l,10,2);
+	printf("\n\nbase 2 :\n\n");
+	affiche_liste(l);
+	printf("\n\nnumber of bits : %d\n", longueur(l));
+	
+	return l;
 }
 
 

@@ -676,3 +676,63 @@ struct liste ** rsa_initialize(int taille){
 	struct liste * e=aleat_impair(taillephin);
 	
 }*/
+
+int * erathostene(typ borne){
+	int * crible=(int *)malloc((borne+1)*sizeof(int));
+	typ i;
+	typ j;
+	typ quotient;
+	*crible=0;
+	*(crible+1)=1;
+	for (i=2; i<borne+1; i++){
+		*(crible+i)=1;
+	}
+	for(i=2; i<37; i++){
+		if(i!=23 && i!=29 && i!=31){
+			quotient=borne/i;
+			for(j=1; j<quotient+1; j++){
+				*(crible+j*i)=0;
+			}
+		}
+	}
+	return crible;
+}
+
+typ * tobetested(typ borne){
+	int * crible=erathostene(borne);
+	typ compteur=0;
+	typ compteur2=0;
+	typ i;
+	for(i=0; i<borne+1; i++){
+		if(*(crible+i)){
+			compteur=compteur+1;
+		}
+	}
+	typ * candidats=(typ *)malloc(compteur*sizeof(typ));
+	for(i=0; i<borne+1; i++){
+		if(*(crible+i)){
+			*(candidats+compteur2)=i;
+			compteur2=compteur2+1;
+		}
+	}
+	return candidats;
+}
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

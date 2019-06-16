@@ -10,7 +10,10 @@ Note that this function works only if (base) > (the greatest witness)
 which happens to be 61 */
 int est_premier(struct liste * p, int nbtemoin);
 
-//returns a prime whose size in base base is taille
-struct liste * premier(int taille);
+/* returns a prime whose number of bits is *bit
+In base 2327925600, all number terminating by 0 are divisible
+by all the numbers in the set [2,36]\{23,27,29,31}. 
+Such property is used in the call to "premier" in the main function */
+struct liste * premier(int * bit);
 
 #endif

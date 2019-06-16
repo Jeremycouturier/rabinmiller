@@ -84,4 +84,14 @@ The same conditions as "most_significant_digit" have to be valid
 This function is used to calculate the "expectancy of runtime" */
 double density_of_prime(struct liste * l, typ msd);
 
+/* returns a vector of borne+1 booleans, such that the nth elements of the vector
+(beginning from 0) contains 0 if n is divisible by any of the integers of
+ [2,36]\{23,27,29,31}, and 1 else.
+More explanation in fonction "premier" in rabinmiller.h */
+int * erathostene(typ borne);
+
+/*returns the vector of all the integers smaller than borne and not
+divisible by any of the integers in [2,36]\{23,27,29,31} */
+typ * tobetested(typ borne);
+
 #endif
