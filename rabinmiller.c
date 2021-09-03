@@ -105,20 +105,19 @@ int est_premier(struct liste * p, int nbtemoin){
 	return 0;
 }
 
-struct liste * premier(int * taille){
+struct liste * premier(int * bit){
 
 	clock_t c1;
-    	clock_t c2;
+    clock_t c2;
 	int boolean;
-	//typ msd=most_significant_digit(base,*bit);
-	struct liste * l=aleat_liste(0,base,*taille);
-	l=miroir(l);
-	typ msd=l->tete;
-	l=miroir(l);
+	int taille=digit(base,*bit);
+	typ msd=most_significant_digit(base,*bit);
+	struct liste * l=aleat_liste(0,base,taille);
 	double densite=density_of_prime(l,msd);
 	double expectancy= 0.17*1/densite;
 	printf("expectancy of number of tries: %.2lf\n", expectancy);
-	/*if(taille>3){
+	l=miroir(l);
+	if(taille>3){
 		l=enleve(enleve(l));
 		l=ajout(base/2,l);
 		l=ajout(msd,l);
@@ -128,7 +127,7 @@ struct liste * premier(int * taille){
 		l=enleve(l);
 		l=ajout(msd,l);
 		l=miroir(l);
-	}*/
+	} 
 	typ * candidats=tobetested(100000);
 	typ compteur=0;
 	l->tete=*(candidats+compteur);
