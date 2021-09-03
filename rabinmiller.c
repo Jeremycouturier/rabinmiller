@@ -136,7 +136,7 @@ struct liste * premier(int * bit){
 	boolean = est_premier(l,18);
     c2=clock();
     if(!boolean){
-		printf("found to be composite in %f secondes\n\n", ((double) (c2-c1)) / ((double) (CLOCKS_PER_SEC)));
+		printf("found to be composite in %f seconds\n\n", ((double) (c2-c1)) / ((double) (CLOCKS_PER_SEC)));
 	}
 	while(!boolean){
 		compteur=compteur+1;
