@@ -10,18 +10,19 @@ liste.c contains functions who manipule linked list
 arithmetique2.c contains functions who perform arithmetic operations on the linked lists.
 rabinmiller.c contains the rabinmiller test in itself
 
-By default, calculus are done in base 2327925600=2^5*3^2*5^2*7*11*13*17*19. In this base, a number terminating by 0 is divisible by all integer in [2,36]\{23,27,29,31}. This
+By default, calculus are done in base 2327925600= 2^5 x 3^2 x 5^2 x 7 x 11 x 13 x 17 x 19. In this base, a number terminating by 0 is divisible by all integer in the range [2,36], less {23,27,29,31}. This
 allows to be more efficient than just checking every odd number. The expectancy of number of tries takes into account the fact that not all odd integers are tested, and is calculated from
-the repartition of prime number.
+the repartition of prime number ( pi(x) ~ x/ln(x) ).
 
-The Rabin-Miller primality test is probabilistic. When it finds a number to be composite, then it is composite. And if every Miller witnesses tested are not witness for the compositeness of p,
-then p is declared to be very probably prime. In this code, we use all primes from 2 to 61 as Miller witnesses (18 primes in total). The user can easily add more witnesses by slightly modifying
-the function "est_premier" (is_prime) in the file rabinmiller.c. The probability of mistake quickly tends to 0 as the number of witnesses grows up.
+The Rabin-Miller primality test is probabilistic. When it finds a number to be composite, then it is composite with absolute certainty. On the contrary if every Miller witnesses tested are not witness for the compositeness of p,
+then p is declared to be very probably prime. In this code, we use all primes from 2 to 61 as Miller witnesses (18 primes in total), making the probability of false positive absolutely
+negligible for practical purposes. The user can easily add more witnesses by slightly modifying
+the function "est_premier" (literally "is_prime") in the file rabinmiller.c. The probability of mistake quickly tends to 0 as the number of witnesses grows up.
 
                 **************************
 
-To install, just download the whole project in any directory, go to that directory and use the make command (gcc must be installed).
-The subsequent executable is called premier
+To install, just download the whole project in any directory, cd to that directory and run the make command (gcc must be installed).
+The subsequent executable is called by the command ./premier
 
                 **************************
 
