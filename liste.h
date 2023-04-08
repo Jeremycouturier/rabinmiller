@@ -5,7 +5,7 @@
 #define typ unsigned long // -> base max = 3037000500
 
 //base of numbering into which calculus are done
-typ base;
+extern typ base;
 
 struct liste {
 	typ tete; //the head of the linked list

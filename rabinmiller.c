@@ -108,7 +108,7 @@ int est_premier(struct liste * p, int nbtemoin){
 struct liste * premier(int * bit){
 
 	clock_t c1;
-    clock_t c2;
+      clock_t c2;
 	int boolean;
 	int taille=digit(base,*bit);
 	typ msd=most_significant_digit(base,*bit);
@@ -134,8 +134,8 @@ struct liste * premier(int * bit){
 	printf("\ntry n° %lu\n", compteur+1);
 	c1=clock();
 	boolean = est_premier(l,18);
-    c2=clock();
-    if(!boolean){
+      c2=clock();
+      if(!boolean){
 		printf("found to be composite in %f seconds\n\n", ((double) (c2-c1)) / ((double) (CLOCKS_PER_SEC)));
 	}
 	while(!boolean){
