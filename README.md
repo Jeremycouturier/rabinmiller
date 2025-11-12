@@ -6,7 +6,7 @@ All the arithmetic functions needed to run the rabin-miller primality test are h
 
 Each .c file is associated with a .h file which contains comments about what are the purposes of the functions defined in the .c file. The .c contain only fews comments.
 
-liste.c contains functions who manipule linked list
+liste.c contains functions manipulating linked lists
 arithmetique2.c contains functions who perform arithmetic operations on the linked lists.
 rabinmiller.c contains the rabinmiller test in itself
 
@@ -17,7 +17,7 @@ the repartition of prime number ( pi(x) ~ x/ln(x) ).
 The Rabin-Miller primality test is probabilistic. When it finds a number to be composite, then it is composite with absolute certainty. On the contrary if every Miller witnesses tested are not witness for the compositeness of p,
 then p is declared to be very probably prime. In this code, we use all primes from 2 to 61 as Miller witnesses (18 primes in total), making the probability of false positive absolutely
 negligible for practical purposes. The user can easily add more witnesses by slightly modifying
-the function "est_premier" (literally "is_prime") in the file rabinmiller.c. The probability of mistake quickly tends to 0 as the number of witnesses grows up.
+the function "est_premier" (literally "is_prime") in the file rabinmiller.c. The probability of false prime quickly tends to 0 as the number of witnesses grows up.
 
                 **************************
 

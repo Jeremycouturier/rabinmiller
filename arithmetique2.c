@@ -717,22 +717,3 @@ typ * tobetested(typ borne){
 	}
 	return candidats;
 }
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

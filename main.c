@@ -7,8 +7,7 @@
 #include <errno.h>
 #include <math.h>
 
-//typ base = 43341;
-typ base =2327925600; // 2^5*3^2*5^2*7*11*13*17*19
+typ base = 2327925600; // 2^5*3^2*5^2*7*11*13*17*19
 
 int main(){
 	int * bit = (int *)malloc(sizeof(int));
@@ -25,21 +24,3 @@ int main(){
 
 	return 0;
 }
-
-/*int main(){
-	printf("%lu\n", most_significant_digit(base,33));
-
-	return 0;
-}*/
-
-
-
-
-
-
-
-
-
-
-
-	

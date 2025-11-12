@@ -66,15 +66,6 @@ void desallouer(struct liste * l){
 	}
 }
 
-/*int longueur(struct liste *l){
-	if(l==NULL){
-		return 0;
-	}
-	else{
-		return 1+longueur(l->queue);
-	}
-}*/
-
 int longueur(struct liste * l){
 	struct liste * ll = l;
 	int i = 0;
@@ -170,27 +161,3 @@ struct liste * changebase(struct liste * l, typ base1, typ base2){
 	}
 	return ll;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

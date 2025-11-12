@@ -163,29 +163,3 @@ struct liste * premier(int * bit){
 	
 	return l;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
